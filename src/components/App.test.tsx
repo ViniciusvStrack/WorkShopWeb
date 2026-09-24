@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event'
 import App from '../App'
 import { workshop } from '../content/workshop'
 import { buildWhatsAppUrl } from '../lib/whatsapp'
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
 
 it('presents the confirmed workshop facts and honest provisional details', () => {
   render(<App />)
@@ -37,4 +39,21 @@ it('makes the first registration action reachable by keyboard', async () => {
   await user.tab()
   await user.tab()
   expect(links[0]).toHaveFocus()
+})
+
+it('ships the responsive and accessible style contracts', () => {
+  const globalStyles = readFileSync(resolve(process.cwd(), 'src/styles/global.css'), 'utf8')
+  const pageStyles = readFileSync(resolve(process.cwd(), 'src/styles/page.css'), 'utf8')
+  const styles = `${globalStyles}\n${pageStyles}`
+
+  expect(styles).toContain(':focus-visible')
+  expect(styles).toContain('@media (prefers-reduced-motion: reduce)')
+  expect(styles).toContain('.mobile-cta')
+  expect(styles).toContain('@media (min-width: 64rem)')
+})
+
+it('keeps provisional gallery artwork decorative', () => {
+  render(<App />)
+  const gallery = screen.getByRole('region', { name: /espaços reservados para fotografias/i })
+  expect(gallery.querySelectorAll('figure[aria-hidden="true"]')).toHaveLength(6)
 })
