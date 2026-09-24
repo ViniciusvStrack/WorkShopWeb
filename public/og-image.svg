@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d3bd98"/><stop offset="1" stop-color="#464b39"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="#f4f0e8"/>
+  <rect x="730" width="470" height="630" fill="url(#g)"/>
+  <circle cx="1030" cy="180" r="145" fill="none" stroke="#f4f0e8" stroke-opacity=".55" stroke-width="2"/>
+  <text x="76" y="120" fill="#a4563e" font-family="Arial, sans-serif" font-size="24" letter-spacing="5">19—21 JAN 2027</text>
+  <text x="70" y="300" fill="#1d1d1a" font-family="Georgia, serif" font-size="112">Imersão</text>
+  <text x="150" y="410" fill="#a4563e" font-family="Georgia, serif" font-style="italic" font-size="112">Presencial</text>
+  <text x="76" y="525" fill="#4b4a43" font-family="Arial, sans-serif" font-size="25">Três dias para transformar intenção em prática.</text>
+</svg>
