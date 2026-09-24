@@ -14,12 +14,18 @@ describe('buildWhatsAppUrl', () => {
   })
 })
 
-it('keeps confirmed facts and provisional facts explicit', () => {
+it('keeps confirmed facts and provisional capacity explicit', () => {
   expect(workshop.dates.display).toBe('19—21 JAN 2027')
   expect(workshop.price).toBe(1800)
   expect(workshop.whatsapp.phone).toBe('558191853191')
-  expect(workshop.location.isConfirmed).toBe(false)
+  expect(workshop.location.isConfirmed).toBe(true)
   expect(workshop.capacity.isConfirmed).toBe(false)
   expect(workshop.schedule).toHaveLength(3)
-  expect(workshop.schedule.every((day) => day.description.startsWith('Programação a confirmar.'))).toBe(true)
+  expect(workshop.schedule.every((day) => day.eyebrow === 'Programação provisória')).toBe(true)
+})
+
+it('includes the confirmed venue in the registration conversation', () => {
+  const url = buildWhatsAppUrl(workshop.whatsapp.phone, workshop.whatsapp.message)
+
+  expect(decodeURIComponent(url)).toContain('Kasa da Falésia, Praia Bela, Pitimbu-PB')
 })

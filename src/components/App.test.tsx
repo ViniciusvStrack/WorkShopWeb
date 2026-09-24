@@ -14,8 +14,21 @@ it('presents the confirmed workshop facts and honest provisional details', () =>
   expect(screen.getAllByText('19—21 JAN 2027').length).toBeGreaterThanOrEqual(1)
   expect(screen.getByText(/R\$\s*1\.800/)).toBeInTheDocument()
   expect(screen.getAllByTestId('schedule-day')).toHaveLength(3)
-  expect(screen.getAllByText('Local a confirmar').length).toBeGreaterThanOrEqual(1)
+  expect(screen.getAllByText('Kasa da Falésia, Praia Bela, Pitimbu–PB').length).toBeGreaterThanOrEqual(1)
   expect(document.querySelector('img[src=""]')).not.toBeInTheDocument()
+})
+
+it('presents the confirmed venue, included stay and event times', () => {
+  render(<App />)
+
+  expect(screen.getAllByText('Kasa da Falésia, Praia Bela, Pitimbu–PB').length).toBeGreaterThanOrEqual(1)
+  expect(screen.getByText('Acesso total ao workshop, pousada, café da manhã, almoço e jantar')).toBeInTheDocument()
+  expect(screen.getByText('Terça-feira, 19 de janeiro, às 14h')).toBeInTheDocument()
+  expect(screen.getByText('Quinta-feira, 21 de janeiro, às 11h')).toBeInTheDocument()
+
+  const days = screen.getAllByTestId('schedule-day')
+  expect(days[0]).toHaveTextContent('Chegada às 14h')
+  expect(days[2]).toHaveTextContent('Encerramento às 11h')
 })
 
 it('keeps every registration action canonical and safe', () => {

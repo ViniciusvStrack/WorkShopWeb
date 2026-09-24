@@ -31,6 +31,11 @@ export interface WorkshopContent {
   price: number
   location: Fact
   capacity: Fact
+  experience: {
+    included: string
+    arrival: string
+    closing: string
+  }
   whatsapp: {
     phone: string
     displayPhone: string
@@ -61,19 +66,24 @@ export const workshop: WorkshopContent = {
   price: 1800,
   location: {
     label: 'Local',
-    value: 'Local a confirmar',
-    isConfirmed: false,
+    value: 'Kasa da Falésia, Praia Bela, Pitimbu–PB',
+    isConfirmed: true,
   },
   capacity: {
     label: 'Turma',
     value: 'Turma limitada — quantidade a confirmar',
     isConfirmed: false,
   },
+  experience: {
+    included: 'Acesso total ao workshop, pousada, café da manhã, almoço e jantar',
+    arrival: 'Terça-feira, 19 de janeiro, às 14h',
+    closing: 'Quinta-feira, 21 de janeiro, às 11h',
+  },
   whatsapp: {
     phone: '558191853191',
     displayPhone: '+55 81 9185-3191',
     message:
-      'Olá! Tenho interesse no workshop de 19 a 21 de janeiro de 2027 e gostaria de saber mais.',
+      'Olá! Tenho interesse no workshop de 19 a 21 de janeiro de 2027, na Kasa da Falésia, Praia Bela, Pitimbu-PB, e gostaria de saber mais.',
   },
   schedule: [
     {
@@ -82,7 +92,7 @@ export const workshop: WorkshopContent = {
       eyebrow: 'Programação provisória',
       title: 'Primeiro encontro',
       description:
-        'Programação a confirmar. O anfitrião divulgará o conteúdo e a dinâmica deste primeiro dia.',
+        'Chegada às 14h. A programação e a dinâmica do primeiro dia serão divulgadas pelo anfitrião.',
     },
     {
       day: 'Dia 02',
@@ -98,7 +108,7 @@ export const workshop: WorkshopContent = {
       eyebrow: 'Programação provisória',
       title: 'Terceiro encontro',
       description:
-        'Programação a confirmar. O anfitrião divulgará o conteúdo e a dinâmica deste terceiro dia.',
+        'Encerramento às 11h. A programação anterior ao encerramento será divulgada pelo anfitrião.',
     },
   ],
   gallery: [
