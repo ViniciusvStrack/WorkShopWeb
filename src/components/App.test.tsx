@@ -52,6 +52,16 @@ it('ships the responsive and accessible style contracts', () => {
   expect(styles).toContain('@media (min-width: 64rem)')
 })
 
+it('guards the narrow mobile layout from horizontal clipping', () => {
+  const pageStyles = readFileSync(resolve(process.cwd(), 'src/styles/page.css'), 'utf8')
+
+  expect(pageStyles).toContain('.page-header__cta { display: none; }')
+  expect(pageStyles).toContain('grid-template-columns: auto minmax(0, 1fr);')
+  expect(pageStyles).toContain('font-size: clamp(3.2rem, 13vw, 8.5rem);')
+  expect(pageStyles).toContain('.hero__copy { min-width: 0;')
+  expect(pageStyles).toContain('.mobile-cta > span { display: none; }')
+})
+
 it('keeps provisional gallery artwork decorative', () => {
   render(<App />)
   const gallery = screen.getByRole('region', { name: /espaços reservados para fotografias/i })
