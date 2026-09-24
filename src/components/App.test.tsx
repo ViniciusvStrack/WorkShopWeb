@@ -67,3 +67,24 @@ it('keeps provisional gallery artwork decorative', () => {
   const gallery = screen.getByRole('region', { name: /espaços reservados para fotografias/i })
   expect(gallery.querySelectorAll('figure[aria-hidden="true"]')).toHaveLength(6)
 })
+
+it('renders an edited event title from the central content module', () => {
+  const originalTitle = workshop.title
+  workshop.title = 'Encontro de Autor'
+
+  try {
+    render(<App />)
+    expect(screen.getByRole('heading', { level: 1, name: 'Encontro de Autor' })).toBeInTheDocument()
+  } finally {
+    workshop.title = originalTitle
+  }
+})
+
+it('uses layered focus contrast and opaque registration copy', () => {
+  const globalStyles = readFileSync(resolve(process.cwd(), 'src/styles/global.css'), 'utf8')
+  const pageStyles = readFileSync(resolve(process.cwd(), 'src/styles/page.css'), 'utf8')
+
+  expect(globalStyles).toContain('outline: 3px solid #fff;')
+  expect(globalStyles).toContain('box-shadow: 0 0 0 6px #111;')
+  expect(pageStyles).toContain('color: #fff;')
+})

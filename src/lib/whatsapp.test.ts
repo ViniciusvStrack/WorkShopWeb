@@ -21,4 +21,5 @@ it('keeps confirmed facts and provisional facts explicit', () => {
   expect(workshop.location.isConfirmed).toBe(false)
   expect(workshop.capacity.isConfirmed).toBe(false)
   expect(workshop.schedule).toHaveLength(3)
+  expect(workshop.schedule.every((day) => day.description.startsWith('Programação a confirmar.'))).toBe(true)
 })

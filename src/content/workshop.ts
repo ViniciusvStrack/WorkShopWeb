@@ -79,26 +79,26 @@ export const workshop: WorkshopContent = {
     {
       day: 'Dia 01',
       date: '19 JAN',
-      eyebrow: 'Encontro e repertório',
-      title: 'Abrir caminhos',
+      eyebrow: 'Programação provisória',
+      title: 'Primeiro encontro',
       description:
-        'Boas-vindas, fundamentos e conversas para criar uma base comum. A programação detalhada será anunciada pelo anfitrião.',
+        'Programação a confirmar. O anfitrião divulgará o conteúdo e a dinâmica deste primeiro dia.',
     },
     {
       day: 'Dia 02',
       date: '20 JAN',
-      eyebrow: 'Experimentação guiada',
-      title: 'Transformar em prática',
+      eyebrow: 'Programação provisória',
+      title: 'Segundo encontro',
       description:
-        'Um dia dedicado a exercícios, observação e acompanhamento próximo. A dinâmica completa será divulgada em breve.',
+        'Programação a confirmar. O anfitrião divulgará o conteúdo e a dinâmica deste segundo dia.',
     },
     {
       day: 'Dia 03',
       date: '21 JAN',
-      eyebrow: 'Síntese e próximos passos',
-      title: 'Levar adiante',
+      eyebrow: 'Programação provisória',
+      title: 'Terceiro encontro',
       description:
-        'Fechamento da imersão, trocas e organização dos aprendizados. Os detalhes finais serão confirmados pelo anfitrião.',
+        'Programação a confirmar. O anfitrião divulgará o conteúdo e a dinâmica deste terceiro dia.',
     },
   ],
   gallery: [
