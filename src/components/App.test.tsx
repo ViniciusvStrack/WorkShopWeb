@@ -31,6 +31,13 @@ it('presents the confirmed venue, included stay and event times', () => {
   expect(days[2]).toHaveTextContent('Encerramento às 11h')
 })
 
+it('communicates limited availability without publishing a quantity', () => {
+  render(<App />)
+
+  expect(screen.getByText('Vagas limitadas')).toBeInTheDocument()
+  expect(screen.queryByText(/quantidade a confirmar/i)).not.toBeInTheDocument()
+})
+
 it('keeps every registration action canonical and safe', () => {
   render(<App />)
   const canonicalUrl = buildWhatsAppUrl(workshop.whatsapp.phone, workshop.whatsapp.message)

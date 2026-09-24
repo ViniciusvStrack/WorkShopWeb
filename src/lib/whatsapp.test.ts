@@ -14,12 +14,12 @@ describe('buildWhatsAppUrl', () => {
   })
 })
 
-it('keeps confirmed facts and provisional capacity explicit', () => {
+it('keeps the confirmed facts explicit', () => {
   expect(workshop.dates.display).toBe('19—21 JAN 2027')
   expect(workshop.price).toBe(1800)
   expect(workshop.whatsapp.phone).toBe('558191853191')
   expect(workshop.location.isConfirmed).toBe(true)
-  expect(workshop.capacity.isConfirmed).toBe(false)
+  expect(workshop.capacity.isConfirmed).toBe(true)
   expect(workshop.schedule).toHaveLength(3)
   expect(workshop.schedule.every((day) => day.eyebrow === 'Programação provisória')).toBe(true)
 })

@@ -79,9 +79,9 @@ export const workshop: WorkshopContent = {
     isConfirmed: true,
   },
   capacity: {
-    label: 'Turma',
-    value: 'Turma limitada — quantidade a confirmar',
-    isConfirmed: false,
+    label: 'Vagas',
+    value: 'Vagas limitadas',
+    isConfirmed: true,
   },
   experience: {
     included: 'Acesso total ao workshop, pousada, café da manhã, almoço e jantar',
