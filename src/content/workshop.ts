@@ -18,6 +18,14 @@ export interface GallerySlot {
   tone: 'clay' | 'olive' | 'sand'
 }
 
+export interface Speaker {
+  id: string
+  name: string
+  role: string
+  bio: string
+  photoSrc: string | null
+}
+
 export interface WorkshopContent {
   title: string
   eyebrow: string
@@ -42,6 +50,7 @@ export interface WorkshopContent {
     message: string
   }
   schedule: WorkshopDay[]
+  speakers: Speaker[]
   gallery: GallerySlot[]
 }
 
@@ -110,6 +119,11 @@ export const workshop: WorkshopContent = {
       description:
         'Encerramento às 11h. A programação anterior ao encerramento será divulgada pelo anfitrião.',
     },
+  ],
+  speakers: [
+    { id: 'speaker-01', name: 'Palestrante 01', role: 'Informações profissionais em breve', bio: '', photoSrc: null },
+    { id: 'speaker-02', name: 'Palestrante 02', role: 'Informações profissionais em breve', bio: '', photoSrc: null },
+    { id: 'speaker-03', name: 'Palestrante 03', role: 'Informações profissionais em breve', bio: '', photoSrc: null },
   ],
   gallery: [
     { id: 'atmosfera', label: 'Atmosfera do encontro', tone: 'sand' },

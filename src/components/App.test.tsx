@@ -81,6 +81,38 @@ it('keeps provisional gallery artwork decorative', () => {
   expect(gallery.querySelectorAll('figure[aria-hidden="true"]')).toHaveLength(6)
 })
 
+it('offers navigation to three provisional speaker profiles', () => {
+  render(<App />)
+
+  expect(screen.getByRole('link', { name: 'Palestrantes' })).toHaveAttribute('href', '#palestrantes')
+  const speakers = screen.getByRole('region', { name: 'Palestrantes convidados' })
+  expect(speakers.querySelectorAll('[data-testid="speaker-card"]')).toHaveLength(3)
+  expect(screen.getByText('Palestrante 01')).toBeInTheDocument()
+  expect(screen.getByText('Palestrante 02')).toBeInTheDocument()
+  expect(screen.getByText('Palestrante 03')).toBeInTheDocument()
+  expect(screen.getAllByText('Informações profissionais em breve')).toHaveLength(3)
+})
+
+it('renders completed speaker data from the central content module', () => {
+  const originalSpeaker = { ...workshop.speakers[0] }
+  workshop.speakers[0] = {
+    ...originalSpeaker,
+    name: 'Nome confirmado',
+    role: 'Fotógrafo e educador',
+    bio: 'Biografia profissional confirmada.',
+    photoSrc: '/speakers/nome-confirmado.jpg',
+  }
+
+  try {
+    render(<App />)
+    expect(screen.getByRole('img', { name: 'Nome confirmado' })).toHaveAttribute('src', '/speakers/nome-confirmado.jpg')
+    expect(screen.getByText('Fotógrafo e educador')).toBeInTheDocument()
+    expect(screen.getByText('Biografia profissional confirmada.')).toBeInTheDocument()
+  } finally {
+    workshop.speakers[0] = originalSpeaker
+  }
+})
+
 it('renders an edited event title from the central content module', () => {
   const originalTitle = workshop.title
   workshop.title = 'Encontro de Autor'

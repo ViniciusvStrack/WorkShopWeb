@@ -2,6 +2,7 @@ import { PageHeader } from './components/PageHeader'
 import { Hero } from './components/Hero'
 import { EditorialSection } from './components/EditorialSection'
 import { Schedule } from './components/Schedule'
+import { Speakers } from './components/Speakers'
 import { Gallery } from './components/Gallery'
 import { EventDetails } from './components/EventDetails'
 import { Registration } from './components/Registration'
@@ -16,6 +17,7 @@ export default function App() {
       <main id="conteudo">
         <Hero />
         <EditorialSection />
+        <Speakers />
         <Schedule />
         <Gallery />
         <EventDetails />
