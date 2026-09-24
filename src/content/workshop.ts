@@ -1,0 +1,112 @@
+export interface Fact {
+  label: string
+  value: string
+  isConfirmed: boolean
+}
+
+export interface WorkshopDay {
+  day: string
+  date: string
+  eyebrow: string
+  title: string
+  description: string
+}
+
+export interface GallerySlot {
+  id: string
+  label: string
+  tone: 'clay' | 'olive' | 'sand'
+}
+
+export interface WorkshopContent {
+  title: string
+  eyebrow: string
+  summary: string
+  manifesto: string[]
+  audience: string[]
+  dates: {
+    display: string
+    long: string
+  }
+  price: number
+  location: Fact
+  capacity: Fact
+  whatsapp: {
+    phone: string
+    displayPhone: string
+    message: string
+  }
+  schedule: WorkshopDay[]
+  gallery: GallerySlot[]
+}
+
+export const workshop: WorkshopContent = {
+  title: 'Imersão Presencial',
+  eyebrow: 'Três dias para mergulhar no seu processo',
+  summary:
+    'Uma experiência presencial criada para quem deseja desacelerar, trocar experiências e transformar intenção em prática.',
+  manifesto: [
+    'Há aprendizados que não cabem em uma tela. Eles acontecem no encontro, na observação e na coragem de experimentar ao lado de outras pessoas.',
+    'Durante três dias, vamos construir um espaço de troca honesta, prática acompanhada e conversas que continuam muito depois do último encontro.',
+  ],
+  audience: [
+    'Para quem deseja renovar o olhar e encontrar mais intenção no próprio processo.',
+    'Para profissionais e pessoas em desenvolvimento que valorizam prática, repertório e troca próxima.',
+    'Para quem procura uma experiência concentrada, humana e com espaço para perguntas reais.',
+  ],
+  dates: {
+    display: '19—21 JAN 2027',
+    long: '19 a 21 de janeiro de 2027',
+  },
+  price: 1800,
+  location: {
+    label: 'Local',
+    value: 'Local a confirmar',
+    isConfirmed: false,
+  },
+  capacity: {
+    label: 'Turma',
+    value: 'Turma limitada — quantidade a confirmar',
+    isConfirmed: false,
+  },
+  whatsapp: {
+    phone: '558191853191',
+    displayPhone: '+55 81 9185-3191',
+    message:
+      'Olá! Tenho interesse no workshop de 19 a 21 de janeiro de 2027 e gostaria de saber mais.',
+  },
+  schedule: [
+    {
+      day: 'Dia 01',
+      date: '19 JAN',
+      eyebrow: 'Encontro e repertório',
+      title: 'Abrir caminhos',
+      description:
+        'Boas-vindas, fundamentos e conversas para criar uma base comum. A programação detalhada será anunciada pelo anfitrião.',
+    },
+    {
+      day: 'Dia 02',
+      date: '20 JAN',
+      eyebrow: 'Experimentação guiada',
+      title: 'Transformar em prática',
+      description:
+        'Um dia dedicado a exercícios, observação e acompanhamento próximo. A dinâmica completa será divulgada em breve.',
+    },
+    {
+      day: 'Dia 03',
+      date: '21 JAN',
+      eyebrow: 'Síntese e próximos passos',
+      title: 'Levar adiante',
+      description:
+        'Fechamento da imersão, trocas e organização dos aprendizados. Os detalhes finais serão confirmados pelo anfitrião.',
+    },
+  ],
+  gallery: [
+    { id: 'atmosfera', label: 'Atmosfera do encontro', tone: 'sand' },
+    { id: 'processo', label: 'Processo em movimento', tone: 'olive' },
+    { id: 'detalhes', label: 'Detalhes da experiência', tone: 'clay' },
+    { id: 'trocas', label: 'Trocas presenciais', tone: 'clay' },
+    { id: 'pratica', label: 'Prática acompanhada', tone: 'sand' },
+    { id: 'memorias', label: 'Memórias da imersão', tone: 'olive' },
+  ],
+}
